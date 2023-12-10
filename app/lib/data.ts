@@ -132,7 +132,7 @@ export async function fetchFilteredInvoices(
 }
 
 export async function fetchInvoicesPages(query: string) {
-  noStore();
+  noStore(); //opt out of static rendering. component should not be cached.
   try {
     const count = await sql`SELECT COUNT(*)
     FROM invoices

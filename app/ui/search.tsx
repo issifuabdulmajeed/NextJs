@@ -7,14 +7,13 @@ import { useDebouncedCallback } from 'use-debounce';
 
 
 export default function Search({ placeholder }: { placeholder: string }) {
-  const searchParams = useSearchParams(); //URLSearchParams is a Web API that provides utility methods for manipulating the URL query parameters. Instead of creating a complex string literal, you can use it to get the params string like ?page=1&query=a
+  const searchParams = useSearchParams(); 
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term) => {
-    console.log(`Searching... ${term}`);
-   
-    const params = new URLSearchParams(searchParams);
+
+    const params = new URLSearchParams(searchParams); //URLSearchParams is a Web API that provides utility methods for manipulating the URL query parameters. Instead of creating a complex string literal, you can use it to get the params string like ?page=1&query=a
     params.set('page', '1');
     if (term) {
       params.set('query', term);
